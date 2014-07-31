@@ -7,6 +7,7 @@
 //
 
 #import "AZViewController.h"
+#import "ShimUIAlertController.h"
 
 @interface AZViewController ()
 
@@ -14,14 +15,23 @@
 
 @implementation AZViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)viewDidAppear:(BOOL) animated {
+    [super viewDidAppear:animated];
+    ShimUIAlertController *controller = [ShimUIAlertController alertControllerWithTitle:@"た行っとる" message:@"message" preferredStyle:ShimUIAlertActionStyleCancel];
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [controller addAction:[ShimUIAlertAction actionWithTitle:@"OK" style:ShimUIAlertActionStyleDefault handler:^(ShimUIAlertAction *action) {
+        NSLog(@"Cancel");
+    }]];
+    [controller showInViewController:self completion:^{
+
+    }];
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

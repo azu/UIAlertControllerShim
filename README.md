@@ -7,9 +7,16 @@
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Compatible layer for [UIAlertController](https://developer.apple.com/library/prerelease/iOS/documentation/UIKit/Reference/UIAlertController_class/ "UIAlertController").
 
-## Requirements
+## Known Issue(not compatible things0
+
+- `- (void)showInViewController:(UIViewController *) controller completion:(void (^)()) completion;`
+  It's need to set `UIModalPresentationCurrentContext` to controller.
+- Close Alert then call `viewDidAppear:`.
+  UIAlertController has magical `dismissViewControllerAnimated:`?
+- `- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField)) configurationHandler;` is not implement.
+
 
 ## Installation
 
