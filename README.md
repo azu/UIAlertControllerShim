@@ -20,7 +20,7 @@ Compatible layer for [UIAlertController](https://developer.apple.com/library/pre
 ## Usage
 
 ``` objc
-ShimUIAlertController *controller = [ShimUIAlertController alertControllerWithTitle:@"た行っとる" message:@"message" preferredStyle:ShimUIAlertActionStyleCancel];
+ShimUIAlertController *controller = [ShimUIAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:ShimUIAlertActionStyleCancel];
 [controller addAction:[ShimUIAlertAction actionWithTitle:@"OK" style:ShimUIAlertActionStyleDefault handler:^(ShimUIAlertAction *action) {
     NSLog(@"OK");
 }]];
