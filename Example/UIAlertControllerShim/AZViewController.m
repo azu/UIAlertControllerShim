@@ -21,14 +21,11 @@
 
 - (void)viewDidAppear:(BOOL) animated {
     [super viewDidAppear:animated];
-    ShimUIAlertController *controller = [ShimUIAlertController alertControllerWithTitle:@"た行っとる" message:@"message" preferredStyle:ShimUIAlertActionStyleCancel];
-    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    ShimUIAlertController *controller = [ShimUIAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:ShimUIAlertActionStyleCancel];
     [controller addAction:[ShimUIAlertAction actionWithTitle:@"OK" style:ShimUIAlertActionStyleDefault handler:^(ShimUIAlertAction *action) {
-        NSLog(@"Cancel");
+        NSLog(@"OK");
     }]];
-    [controller showInViewController:self completion:^{
-
-    }];
+    [controller showInViewController:self completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

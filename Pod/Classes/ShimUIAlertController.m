@@ -91,9 +91,12 @@
 - (void)showInViewController:(UIViewController *) controller completion:(void (^)()) completion {
     UIModalPresentationStyle original = controller.modalPresentationStyle;
     controller.modalPresentationStyle = UIModalPresentationCurrentContext;
+    void (^action)() = [completion copy];
     [controller presentViewController:self animated:NO completion:^{
         controller.modalPresentationStyle = original;
-        completion();
+        if (action) {
+            action();
+        }
     }];
 }
 @end

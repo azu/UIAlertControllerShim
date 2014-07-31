@@ -9,7 +9,7 @@
 
 Compatible layer for [UIAlertController](https://developer.apple.com/library/prerelease/iOS/documentation/UIKit/Reference/UIAlertController_class/ "UIAlertController").
 
-## Known Issue(not compatible things0
+## Known Issue(not compatible things)
 
 - `- (void)showInViewController:(UIViewController *) controller completion:(void (^)()) completion;`
   It's need to set `UIModalPresentationCurrentContext` to controller.
@@ -17,6 +17,15 @@ Compatible layer for [UIAlertController](https://developer.apple.com/library/pre
   UIAlertController has magical `dismissViewControllerAnimated:`?
 - `- (void)addTextFieldWithConfigurationHandler:(void (^)(UITextField *textField)) configurationHandler;` is not implement.
 
+## Usage
+
+``` objc
+ShimUIAlertController *controller = [ShimUIAlertController alertControllerWithTitle:@"た行っとる" message:@"message" preferredStyle:ShimUIAlertActionStyleCancel];
+[controller addAction:[ShimUIAlertAction actionWithTitle:@"OK" style:ShimUIAlertActionStyleDefault handler:^(ShimUIAlertAction *action) {
+    NSLog(@"OK");
+}]];
+[controller showInViewController:self completion:nil];
+```
 
 ## Installation
 
